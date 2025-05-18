@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürünler</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-left">
+          <h1 class="brand-name">Kara Kedi Mobilya</h1>
+        </div>
+        <div class="nav-center">
+          <ul>
+            <li><a href="/">Ana Sayfa</a></li> <!-- index.ejs için route -->
+            <li><a href="/cart">Sepetim</a></li> <!-- cart.ejs için route -->
+          </ul>
+        </div>
+        <div class="nav-right">
+          <a href="/login" class="login-btn">Giriş Yap</a> <!-- login.ejs için route -->
+          <a href="/register" class="register-btn">Kayıt Ol</a> <!-- register.ejs için route -->
+        </div>
+      </nav>
+
+      <br><br><br><br><br>
+      
+  <h1>Ürünlerimiz</h1>
+
+  <div class="product-container">
+    <% products.forEach((product, index) => { %>
+      <!-- 3'lü grup oluşturacak şekilde her üç ürünü tek satırda gösteriyoruz -->
+      <% if (index % 3 === 0) { %>
+        <div class="product-row">
+      <% } %>
+
+      <div class="product-item">
+        <img src="<%= product.product_url %>" alt="<%= product.product_name %>" />
+        <h3><%= product.product_name %></h3>
+        <p><%= product.product_description %></p>
+        <p>Fiyat: <%= product.product_price %>₺</p>
+
+        <% if (user) { %>
+          <form action="/cart/add" method="POST" class="add-to-cart-form">
+            <input type="hidden" name="product_id" value="<%= product.product_id %>">
+            <input type="number" name="quantity" value="1" min="1" style="width:50px;">
+            <button type="submit">Sepete Ekle</button>
+          </form>
+        <% } else { %>
+          <p>Lütfen <a href="/login">giriş yapınız</a> sepete eklemek için.</p>
+        <% } %>
+      </div>
+
+      <% if (index % 3 === 2 || index === products.length - 1) { %>
+        </div> <!-- Satırı bitir -->
+      <% } %>
+    <% }) %>
+  </div>
+
+</body>
+</html>

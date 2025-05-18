@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sepet</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sepetim</h1>
+
+        <% if (cart && cart.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cart.forEach(item => { %>
+                        <tr>
+                            <td><%= item.product_name %></td>
+                            <td><%= item.product_price.toFixed(2) %>₺</td>
+                            <td><%= item.quantity %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>Sepetiniz boş.</p>
+        <% } %>
+
+        <a href="/">Alışverişe devam et</a>
+    </div>
+</body>
+</html>

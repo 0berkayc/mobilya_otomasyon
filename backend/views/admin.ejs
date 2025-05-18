@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Paneli</h1>
+
+        <!-- Kullanıcı Ekleme Formu -->
+        <form action="/admin/users/add" method="POST">
+            <h2>Kullanıcı Ekle</h2>
+            <input type="text" name="name" placeholder="İsim" required>
+            <input type="text" name="surname" placeholder="Soyisim" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Şifre" required>
+            <select name="role" required>
+                <option value="admin">Admin</option>
+                <option value="employee">Çalışan</option>
+                <option value="customer">Müşteri</option>
+            </select>
+            <button type="submit">Ekle</button>
+        </form>
+
+        <!-- Kullanıcı Listesi -->
+        <h2>Kullanıcılar</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>İsim</th>
+                    <th>Soyisim</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.user_id %></td>
+                        <td><%= user.user_name %></td>
+                        <td><%= user.user_surname %></td>
+                        <td><%= user.user_email %></td>
+                        <td><%= user.user_role %></td>
+                        <td>
+                            <form action="/admin/users/delete" method="POST" style="display:inline;">
+                                <input type="hidden" name="user_id" value="<%= user.user_id %>">
+                                <button type="submit" class="btn-delete">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <!-- Ürün Ekleme Formu -->
+        <form action="/admin/products/add" method="POST" enctype="multipart/form-data">
+            <h2>Ürün Ekle</h2>
+            <input type="text" name="name" placeholder="Ürün Adı" required>
+            <select name="category_id" required>
+                <% categories.forEach((category) => { %>
+                    <option value="<%= category.category_id %>"><%= category.category_name %></option>
+                <% }); %>
+            </select>
+            <input type="number" name="price" placeholder="Fiyat" step="0.01" required>
+            <textarea name="description" placeholder="Açıklama" required></textarea>
+            <input type="number" name="quantity" placeholder="Stok Adedi" required>
+            <input type="text" name="image" placeholder="Görsel URL" required>
+            <button type="submit">Ekle</button>
+        </form>
+
+        <!-- Ürün Listesi -->
+        <h2>Ürünler</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ürün Adı</th>
+                    <th>Kategori</th>
+                    <th>Fiyat</th>
+                    <th>Açıklama</th>
+                    <th>Stok</th>
+                    <th>Görsel</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.product_id %></td>
+                        <td><%= product.product_name %></td>
+                        <td><%= product.category_name %></td>
+                        <td><%= product.product_price %></td>
+                        <td><%= product.product_description %></td>
+                        <td><%= product.total_quantity %></td>
+                        <td><img src="<%= product.product_url %>" alt="Görsel" width="50"></td>
+                        <td>
+                            <form action="/admin/products/delete" method="POST" style="display:inline;">
+                                <input type="hidden" name="product_id" value="<%= product.product_id %>">
+                                <button type="submit">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Mobilya Otomasyonu</title>
+</head>
+
+<body class="register-page">
+    
+    <!--Navbar-->
+    <nav>
+        <div class="nav-left">
+          <h1 class="brand-name">Kara Kedi Mobilya</h1>
+        </div>
+        <div class="nav-center">
+          <ul>
+            <li><a href="/">Ana Sayfa</a></li> <!-- index.ejs için route -->
+            <li><a href="/cart">Sepetim</a></li> <!-- cart.ejs için route -->
+          </ul>
+        </div>
+        <div class="nav-right">
+          <a href="/login" class="login-btn">Giriş Yap</a> <!-- login.ejs için route -->
+          <a href="/register" class="register-btn">Kayıt Ol</a> <!-- register.ejs için route -->
+        </div>
+      </nav>
+      
+
+    <!--Kayıt Ol-->
+
+    <div class="register-container">
+      <h1>Kayıt Ol</h1>
+      <form id="register-form" action="/register" method="POST">
+        <input placeholder="Ad" type="text" id="user_name" name="user_name" required>
+    
+        <input placeholder="Soyad" type="text" id="user_surname" name="user_surname" required>
+    
+        <input placeholder="Email" type="email" id="user_email" name="user_email" required>
+    
+        <input placeholder="Telefon Numarası" type="tel" id="phone" name="phone" required>
+    
+        <input placeholder="Adres" type="text" id="address" name="address" required>
+    
+        <select id="region_id" name="region_id" required>
+          <option value="">Bölge Seçiniz</option>
+          <option value="1">Marmara</option>
+          <option value="2">Ege</option>
+          <option value="3">Akdeniz</option>
+          <option value="4">İç Anadolu</option>
+          <option value="5">Doğu Anadolu</option>
+          <option value="6">Güney Doğu Anadolu</option>
+          <option value="7">Karadeniz</option>
+        </select>
+    
+        <input placeholder="Şifre" type="password" id="user_password" name="user_password" required>
+    
+        <button type="submit">Kayıt Ol</button>
+      </form>
+    </div>
+    
+</body>
+</html>

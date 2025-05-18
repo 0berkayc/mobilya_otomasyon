@@ -1,0 +1,400 @@
+/* public/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Ürünler arasındaki boşluk */
+  }
+  
+  .product-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .product-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%; /* Üç ürün bir satırda olacağı için genişlik */
+    text-align: center;
+  }
+  
+  .product-item img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+  }
+  
+  
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3E2C27;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sol Kısım */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+/* Orta Kısım - Menü Linkleri */
+.nav-center ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-center ul li {
+    display: inline;
+}
+
+.nav-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-center ul li a.active {
+    color: #f6e1b5; /* Aktif sayfa */
+    text-decoration: none;
+}
+
+.nav-center ul li a:hover {
+    color: #f6e1b5;
+}
+
+/* Sağ Kısım - Giriş Yap & Kayıt Ol */
+.nav-right {
+    display: flex;
+    gap: 15px;
+   padding-right: 30px;
+}
+
+.nav-right a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Giriş Yap Linki */
+.login-btn {
+    background-color: #28a745;
+}
+
+.login-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* Kayıt Ol Linki */
+.register-btn {
+    background-color: #28a745;
+}
+
+.register-btn:hover {
+    background-color: #1e7e34;
+}
+
+/*Kayıt Olma*/
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.register-container {
+    background-color: #3E2C27;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.register-container h1 {
+    margin-bottom: 20px;
+    color: #aa8464;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-container button {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-container button:hover {
+    background-color: #aa8464;
+}
+
+/* Select kutusunu biçimlendir */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    background-color: white;
+    appearance: none; /* Tarayıcıya göre varsayılan oku gizler */
+    cursor: pointer;
+  }
+  
+  /* İsteğe bağlı: label ve select arası boşluk */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+
+/*Giriş Yapma*/
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.login-container {
+    background-color: #3E2C27;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #aa8464;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #aa8464;
+}
+
+.login-container p {
+    color: #aa8464;
+}
+
+.login-container p a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-container p a:link {
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    color: #96e7c8;
+}
+
+/*ADMİN PANELİ*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.form-section {
+    margin-top: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-section input,
+.form-section select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-section button {
+    padding: 10px;
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background-color: #265dc0;
+}
+
+button.danger {
+    background-color: #e63946;
+}
+
+button.danger:hover {
+    background-color: #c02736;
+}
+
+
+
+/*-----------------------------*/
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #5A3E36;
+    min-width: 200px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #f6e1b5 !important;
+    /* Hover rengiyle aynı */
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4A342D;
+    color: white !important;
+    padding-left: 25px;
+}
